@@ -1,0 +1,194 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is my project for sce 341",
+    "version": "1.0.0",
+    "title": "W05-8 project"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "guest",
+      "description": "working with the guest collection"
+    },
+    {
+      "name": "user",
+      "description": "working with the user collection"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/guest/": {
+      "get": {
+        "tag": [
+          "guest"
+        ],
+        "description": "get all guests",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tag": [
+          "guest"
+        ],
+        "description": "create new guest",
+        "parameters": {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "example": "any"
+              },
+              "lastName": {
+                "example": "any"
+              },
+              "invitationSent": "any",
+              "invitedToCeremony": "any",
+              "foodAllergies": {
+                "dairy": "any",
+                "gluten": "any",
+                "other": "any"
+              },
+              "address": "any",
+              "role": "any"
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/guest/{id}": {
+      "get": {
+        "tag": [
+          "guest"
+        ],
+        "description": "get single guest by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "tag": [
+          "guest"
+        ],
+        "description": "get all guests",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "user_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:guest": "modify guests in your account",
+        "read:guest": "read your guests"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "user": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "isBride": {
+          "type": "boolean"
+        }
+      }
+    },
+    "guest": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "invitationSent": {
+          "type": "boolean"
+        },
+        "invitedToCeremony": {
+          "type": "boolean"
+        },
+        "foodAllergies": {
+          "type": "object",
+          "properties": {
+            "dairy": {
+              "type": "boolean"
+            },
+            "gluten": {
+              "type": "boolean"
+            },
+            "other": {
+              "type": "string"
+            }
+          }
+        },
+        "address": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
