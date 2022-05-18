@@ -22,15 +22,19 @@ GET http://localhost:8080/user
 
 //PRODUCTION
 ### // get all guests
-GET https://personal-assignment-1.herokuapp.com/guest
+GET https://cse341-wedding-project.herokuapp.com/guest
 
 ### // get guest by id
-GET https://personal-assignment-1.herokuapp.com/guest/628443e989db2f59bee20bc8
+GET https://cse341-wedding-project.herokuapp.com/guest/628443e989db2f59bee20bc8
 
 ### create guest
-POST https://personal-assignment-1.herokuapp.com/guest
+POST https://cse341-wedding-project.herokuapp.com/guest
 content-type:application/json
 
 {
 "firstName":"Melody","lastName":"Handy","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":false,"gluten":false,"other":"hates spice"},"address":"1234, anywhere drive","role":"sister"
 }
+
+//USER COLLECTION
+### // get all users from user collection
+GET http://cse341-wedding-project.herokuapp.com/user

@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "title": "W05-8 project"
   },
-  "host": "localhost:8080",
+  "host": "cse341-wedding-project.herokuapp.com/",
   "basePath": "/",
   "tags": [
     {
