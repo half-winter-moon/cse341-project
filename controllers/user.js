@@ -5,11 +5,16 @@ const mongodb = require('../db/connect');
 
 // getUsers function that gets all the users from the user collection
 const getUsers = async (req, res) => {
+  try {
   const result = await mongodb.getDb().db().collection('user').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
   });
+}
+  catch(error) {
+    res.status(500).json({message:error});
+  }
 };
 
 

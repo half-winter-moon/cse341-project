@@ -11,8 +11,21 @@ POST http://localhost:8080/guest
 content-type:application/json
 
 {
-"firstName":"Melody","lastName":"Handy","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":false,"gluten":false,"other":"hates spice"},"address":"1234, anywhere drive","role":"sister"
+"firstName":"Kelsie","lastName":"Roberts","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":true,"gluten":true,"other":"tries to avoid sugar"},"address":"1234, anywhere drive","role":"best friend"
 }
+
+### PUT contact/ change it
+PUT http://localhost:8080/guest/628ea4f2a7803ca008042ab7
+// HTTP/1.1 
+content-type:application/json
+
+{
+"firstName":"Kelsie","lastName":"Roberts","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":true,"gluten":true,"other":"tries to avoid sugar"},"address":"1234, anywhere drive","role":"BFF"
+}
+
+### delete contact
+DELETE http://localhost:8080/guest/628e478956fcfc7cec304afe
+
 
 //USER COLLECTION
 ### // get all users from user collection
@@ -34,6 +47,17 @@ content-type:application/json
 {
 "firstName":"Melody","lastName":"Handy","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":false,"gluten":false,"other":"hates spice"},"address":"1234, anywhere drive","role":"sister"
 }
+
+### update guest
+POST https://cse341-wedding-project.herokuapp.com/guest
+content-type:application/json
+
+{
+"firstName":"Melody","lastName":"Handy","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":false,"gluten":false,"other":"hates spice"},"address":"1234, anywhere drive","role":"sister"
+}
+
+### delete contact
+DELETE http://localhost:8080/guest/62729f54607b3826fadefe68
 
 //USER COLLECTION
 ### // get all users from user collection
