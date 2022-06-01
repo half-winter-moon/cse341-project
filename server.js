@@ -7,11 +7,27 @@ const mongodb = require('./db/connect');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
+// authentication stuff
+const { auth, requiresAuth } = require('express-openid-connect');
+require('dotenv').config();
+
 const port = process.env.PORT || 8080;
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL,
+};
 
 var options = {
   explorer: true
 };
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
 
 app
  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options))
