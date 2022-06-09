@@ -62,3 +62,9 @@ DELETE http://cse341-wedding-project.herokuapp.com/guest/62729f54607b3826fadefe6
 //USER COLLECTION
 ### // get all users from user collection
 GET http://cse341-wedding-project.herokuapp.com/user
+
+###
+curl --request POST \
+  --url https://dev-jn2i28t1.us.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"FgRvsvshcDnY1Nx76KFGSx8OsM0Ro0S1","client_secret":"flj8DmN7IHQyPdOQP12NHkfUxs3lADOc4id_7xSCf-EJ5b-wEOsiGAKdOF3n7aUH","audience":"wk7-class-activity","grant_type":"client_credentials"}'

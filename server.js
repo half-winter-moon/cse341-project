@@ -8,7 +8,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
 // authentication stuff
-const { auth, requiresAuth } = require('express-openid-connect');
+const { auth } = require('express-openid-connect');
 require('dotenv').config();
 
 const port = process.env.PORT || 8080;
@@ -28,6 +28,11 @@ var options = {
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
+
+// reroute to the auth0 login page
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
 
 app
  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options))
