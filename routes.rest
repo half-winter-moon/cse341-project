@@ -31,6 +31,39 @@ DELETE http://localhost:8080/guest/628e478956fcfc7cec304afe
 ### // get all users from user collection
 GET http://localhost:8080/user
 
+### // get user by id
+GET http://localhost:8080/user/62a239d05753710011017540
+
+### create user
+POST http://localhost:8080/user
+content-type:application/json
+
+{
+  "tenant":"dev-jn2i28t1", 
+  "connection":"MongoDB", 
+  "email":"email4@email.com", 
+  "password":"s0safe!!",
+  "debug":true,
+  "email_verified":false
+}
+
+### PUT user/update it
+PUT http://localhost:8080/user/628ea4f2a7803ca008042ab7
+// HTTP/1.1 
+content-type:application/json
+
+{
+  "tenant":"dev-jn2i28t1", 
+  "connection":"MongoDB", 
+  "email":"email4@email.com", 
+  "password":"s0safe!!",
+  "debug":true,
+  "email_verified":false
+}
+
+### delete user
+DELETE http://localhost:8080/user/62a239d05753710011017540
+
 
 
 //PRODUCTION
@@ -45,7 +78,7 @@ POST https://cse341-wedding-project.herokuapp.com/guest
 content-type:application/json
 
 {
-"firstName":"Melody","lastName":"Handy","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":false,"gluten":false,"other":"hates spice"},"address":"1234, anywhere drive","role":"sister"
+"firstName":"Kelsie","lastName":"Roberts","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":true,"gluten":true,"other":"tries to avoid sugar"},"address":"1234, anywhere drive","role":"best friend"
 }
 
 ### update guest
@@ -53,7 +86,7 @@ PUT https://cse341-wedding-project.herokuapp.com/guest
 content-type:application/json
 
 {
-"firstName":"Melody","lastName":"Handy","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":false,"gluten":false,"other":"hates spice"},"address":"1234, anywhere drive","role":"sister"
+"firstName":"Kelsie","lastName":"Roberts","invitationSent":false,"invitedToCeremony":true,"foodAllergies":{"dairy":true,"gluten":true,"other":"tries to avoid sugar"},"address":"1234, anywhere drive","role":"BFF"
 }
 
 ### delete guest
@@ -62,6 +95,38 @@ DELETE http://cse341-wedding-project.herokuapp.com/guest/62729f54607b3826fadefe6
 //USER COLLECTION
 ### // get all users from user collection
 GET http://cse341-wedding-project.herokuapp.com/user
+
+### // get user by id
+GET https://cse341-wedding-project.herokuapp.com/user/628443e989db2f59bee20bc8
+
+### create user
+POST https://cse341-wedding-project.herokuapp.com/user
+content-type:application/json
+
+{
+  "tenant":"dev-jn2i28t1", 
+  "connection":"MongoDB", 
+  "email":"email4@email.com", 
+  "password":"s0safe!!",
+  "debug":true,
+  "email_verified":false
+}
+
+### update user
+PUT https://cse341-wedding-project.herokuapp.com/user
+content-type:application/json
+
+{
+  "tenant":"dev-jn2i28t1", 
+  "connection":"MongoDB", 
+  "email":"email4@email.com", 
+  "password":"s0safe!!",
+  "debug":true,
+  "email_verified":false
+}
+
+### delete user
+DELETE http://cse341-wedding-project.herokuapp.com/user/62729f54607b3826fadefe68
 
 ###
 curl --request POST \

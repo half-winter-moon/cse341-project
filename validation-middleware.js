@@ -28,6 +28,31 @@ const saveGuest = (req, res, next) => {
     })
 }
 
+const saveUser = (req, res, next) => {
+    const validationRule = {
+        "tenant":"string", 
+        "connection":"string", 
+        "email":"required|string", 
+        "password":"required|string",
+        "debug":"boolean",
+        "email_verified":"boolean"
+    }
+    validator(req.body, validationRule, {}, (err, status) => {
+        if (!status){
+            res.status(412)
+                .send({
+                    success:false,
+                    message:'Incorrect entry',
+                    data:err
+                });
+        }
+        else{
+            next();
+        }
+    })
+}
+
 module.exports = {
-    saveGuest
+    saveGuest,
+    saveUser
 }
