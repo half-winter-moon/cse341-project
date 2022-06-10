@@ -10,6 +10,8 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {},
+  "security": {},
   "paths": {
     "/user/": {
       "get": {
